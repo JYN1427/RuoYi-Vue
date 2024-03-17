@@ -29,9 +29,29 @@
         <poi.version>4.1.2</poi.version>
         <velocity.version>2.3</velocity.version>
         <jwt.version>0.9.1</jwt.version>
+        <junit.version>4.13.2</junit.version>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
     <!-- 依赖声明 -->
+    <!--这个标签主要是用来集中管理项目的依赖版本和其他共性配置，而不直接引入依赖到项目中,不会立即引入到当前项目或子项目中.
+    它们仅仅声明了依赖的groupId、artifactId和version等基本信息，以及可选的其他配置，如scope、classifier等。
+    子模块或子项目引用了在<dependencyManagement>中定义过的依赖时，只需要声明groupId和artifactId，而无需指定version，
+    因为version会自动从父POM的<dependencyManagement>部分继承而来。-->
     <dependencyManagement>
         <dependencies>
 
