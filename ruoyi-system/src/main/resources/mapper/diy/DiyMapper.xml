@@ -84,13 +84,13 @@
     <update id="update" parameterType="com.ruoyi.common.core.domain.entity.DiyStaticsData">
         update t_diy_body_statics
         <set>
-            <if test="dataDate != null">#{dataDate},</if>
-            <if test="personName != null and personName != ''">#{personName},</if>
-            <if test="bloodPressureLow != null and bloodPressureLow != ''">#{bloodPressureLow},</if>
-            <if test="bloodPressureHigh != null and bloodPressureHigh != ''">#{bloodPressureHigh},</if>
-            <if test="weight != null and weight != ''">#{weight},</if>
-            <if test="remark != null and remark != ''">#{remark},</if>
-            <if test="updateBy != null and updateBy != ''">#{updateBy},</if>
+            <if test="dataDate != null">data_date = #{dataDate},</if>
+            <if test="personName != null and personName != ''">person_name = #{personName},</if>
+            <if test="bloodPressureLow != null and bloodPressureLow != ''">blood_pressure_low = #{bloodPressureLow},</if>
+            <if test="bloodPressureHigh != null and bloodPressureHigh != ''">blood_pressure_high = #{bloodPressureHigh},</if>
+            <if test="weight != null and weight != ''">weight = #{weight},</if>
+            <if test="remark != null and remark != ''">remark = #{remark},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
             update_time = sysdate()
         </set>
         where statics_id = #{staticsId}
