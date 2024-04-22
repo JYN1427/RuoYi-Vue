@@ -13,6 +13,6 @@ import org.springframework.context.annotation.PropertySource;
 
 @Profile("dev")
 @Configuration
-@PropertySource(value = {"classpath:env/prod/application.properties", "classpath:env/prod/application-druid.properties"}, encoding = "utf-8")
+@PropertySource(value = {"classpath:env/dev/application.properties", "classpath:env/dev/application-druid.properties"}, encoding = "utf-8")
 public class DevConfig {
 }

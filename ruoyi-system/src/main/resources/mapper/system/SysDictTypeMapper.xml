@@ -20,7 +20,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from sys_dict_type
     </sql>
 
-	<select id="selectDictTypeList" parameterType="SysDictType" resultMap="SysDictTypeResult">
+	<select id="selectDictTypeList"
+			parameterType="SysDictType" resultMap="SysDictTypeResult">
 	    <include refid="selectDictTypeVo"/>
 		<where>
 		    <if test="dictName != null and dictName != ''">

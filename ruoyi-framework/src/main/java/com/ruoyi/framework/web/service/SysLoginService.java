@@ -26,8 +26,8 @@ import com.ruoyi.common.utils.ip.IpUtils;
 import com.ruoyi.framework.manager.AsyncManager;
 import com.ruoyi.framework.manager.factory.AsyncFactory;
 import com.ruoyi.framework.security.context.AuthenticationContextHolder;
-import com.ruoyi.system.service.ISysConfigService;
-import com.ruoyi.system.service.ISysUserService;
+import com.ruoyi.system.service.sys.ISysConfigService;
+import com.ruoyi.system.service.sys.ISysUserService;
 
 /**
  * 登录校验方法
@@ -71,8 +71,10 @@ public class SysLoginService
         Authentication authentication = null;
         try
         {
+            // 根据接口传的username和password计算出对应的authenticationToken, 这里的username和password并不一定是对的 只是传过来的
             UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
             AuthenticationContextHolder.setContext(authenticationToken);
+
             // 该方法会去调用UserDetailsServiceImpl.loadUserByUsername
             authentication = authenticationManager.authenticate(authenticationToken);
         }

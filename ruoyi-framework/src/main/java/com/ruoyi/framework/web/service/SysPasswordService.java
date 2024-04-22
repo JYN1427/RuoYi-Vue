@@ -43,10 +43,12 @@ public class SysPasswordService
 
     public void validate(SysUser user)
     {
+        // 从ThreadLocal中取出先前在SysLoginService.login方法中存入的authenticationToken，拿到接口传入的username和password
         Authentication usernamePasswordAuthenticationToken = AuthenticationContextHolder.getContext();
         String username = usernamePasswordAuthenticationToken.getName();
         String password = usernamePasswordAuthenticationToken.getCredentials().toString();
 
+        // 从redis中根据username取出重试次数, 进行判断
         Integer retryCount = redisCache.getCacheObject(getCacheKey(username));
 
         if (retryCount == null)

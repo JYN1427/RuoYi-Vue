@@ -67,6 +67,7 @@ public class TokenService
         {
             try
             {
+                // 这里claims就是JWT的载荷payload
                 Claims claims = parseToken(token);
                 // 解析对应的权限以及用户信息
                 String uuid = (String) claims.get(Constants.LOGIN_USER_KEY);
